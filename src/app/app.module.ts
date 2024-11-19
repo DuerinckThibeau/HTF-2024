@@ -19,6 +19,7 @@ import { StringToHexComponent } from "./string-to-hex/string-to-hex.component";
 import { MorseCodeComponent } from "./morse-code/morse-code.component";
 import { HomeComponent } from "./home/home.component";
 import { ProfileComponent } from "./profile/profile.component";
+import { AchievementsComponent } from "./achievements/achievements.component";
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProfileComponent } from "./profile/profile.component";
     MorseCodeComponent,
     HomeComponent,
     ProfileComponent,
+    AchievementsComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { ProfileComponent } from "./profile/profile.component";
     RouterModule.forRoot([
       { path: "home", component: HomeComponent },
       { path: "profile", component: ProfileComponent },
+      { path: "achievements", component: AchievementsComponent },
       { path: "mission/disarium-number", component: DISARIUMNUMBERComponent },
       {
         path: "mission/first-last-day-month",
