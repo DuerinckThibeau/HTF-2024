@@ -1,23 +1,50 @@
-<div class="brute-force-container">
-  <div class="button-container">
-    <button
-      (click)="startBruteForce()"
-      [disabled]="isRunning"
-      class="start-button"
-    >
-      {{ isRunning ? "Running..." : "Start Brute Force" }}
-    </button>
+<div class="space-container">
+  <div class="stars"></div>
+  <div class="twinkling"></div>
 
-    <button *ngIf="isRunning" (click)="stopBruteForce()" class="stop-button">
-      Stop
-    </button>
-  </div>
+  <div class="control-panel">
+    <h1 class="mission-title">Astronavigation System</h1>
+    <div class="navigation-interface">
+      <div class="button-container">
+        <button
+          (click)="startBruteForce()"
+          [disabled]="isRunning"
+          class="nav-button start-button"
+        >
+          <span class="button-text">
+            {{ isRunning ? "CALIBRATING..." : "INITIATE SEQUENCE" }}
+          </span>
+        </button>
 
-  <div class="attempt-count">Attempts tried: {{ attemptCount }} / 10000</div>
+        <button
+          *ngIf="isRunning"
+          (click)="stopBruteForce()"
+          class="nav-button stop-button"
+        >
+          <span class="button-text">ABORT</span>
+        </button>
+      </div>
 
-  <div class="attempts-container">
-    <div *ngFor="let attempt of attempts" class="attempt-item">
-      {{ attempt }}
+      <div class="progress-display">
+        <div class="progress-bar">
+          <div
+            class="progress"
+            [style.width]="(attemptCount / 10000) * 100 + '%'"
+          ></div>
+        </div>
+        <div class="attempt-count">
+          Navigation Attempts: {{ attemptCount }} / 10000
+        </div>
+      </div>
+
+      <div class="navigation-log">
+        <h3>Navigation Log</h3>
+        <div class="attempts-container">
+          <div *ngFor="let attempt of attempts" class="attempt-item">
+            {{ attempt }}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
