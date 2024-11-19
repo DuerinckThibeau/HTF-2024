@@ -1,11 +1,60 @@
-<h1>Ancient Algorithm Decoder</h1>
+<div class="space-container">
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
 
-<p>Enter a string to decode:</p>
-<input
-  type="text"
-  [(ngModel)]="inputString"
-  placeholder="Enter encoded string"
-/>
-<button (click)="decodeString()">Decode</button>
+  <div class="content">
+    <h1 class="cosmic-title">Ancient Algorithm Decoder</h1>
+    <div class="decoder-box">
+      <div class="input-group">
+        <input
+          type="text"
+          [(ngModel)]="inputString"
+          placeholder="Enter your Caesar cipher message..."
+          class="cosmic-input"
+        />
+        <button (click)="decodeString()" class="cosmic-button">
+          <span class="button-content">
+            <i class="fas fa-scroll"></i>
+            Decode Ancient Text
+          </span>
+        </button>
+      </div>
 
-<p *ngIf="decodedString">Decoded String: {{ decodedString }}</p>
+      <div class="result-container" *ngIf="decodedString">
+        <div class="result-card">
+          <div class="encoding-type">
+            <span class="label">Encryption Type:</span>
+            <span class="value">Caesar Cipher (Shift {{ SHIFT_AMOUNT }})</span>
+          </div>
+
+          <div class="message-box">
+            <div class="encoded">
+              <span class="label">Original Message:</span>
+              <div class="value">{{ inputString }}</div>
+            </div>
+
+            <div class="decoded">
+              <span class="label">Decrypted Result:</span>
+              <div class="value shifting-text">
+                <span
+                  *ngFor="let char of animatedChars"
+                  [class.shifted]="char.shifted"
+                  class="char-container"
+                >
+                  {{ char.value }}
+                  <small
+                    class="shift-count"
+                    *ngIf="char.currentShift > 0 && !char.shifted"
+                  >
+                    {{ char.currentShift }}/3
+                  </small>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
