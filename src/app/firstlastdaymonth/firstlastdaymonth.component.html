@@ -1,0 +1,8 @@
+<h1>Zoek de eerste en laatste dag van een maand</h1>
+
+<p>Voer een maand en jaar in:</p>
+<input type="number" [(ngModel)]="month" placeholder="Month (1-12)" />
+<input type="number" [(ngModel)]="year" placeholder="Year" />
+<button (click)="findFirstAndLastDay()">Submit</button>
+
+<p *ngIf="result">{{ result }}</p>

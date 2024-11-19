@@ -1,0 +1,8 @@
+<h1>Reverse String</h1>
+
+<p>Voer een string in:</p>
+<input type="text" [(ngModel)]="inputString" placeholder="Enter string" />
+<button (click)="reverseString()">Reverse</button>
+
+<p *ngIf="inputString">Originele string: {{ inputString }}</p>
+<p *ngIf="reversedString">Omgekeerde string: {{ reversedString }}</p>

@@ -1,0 +1,11 @@
+<h1>Replace String in Array</h1>
+
+<p>Enter the index of the string to replace:</p>
+<input type="number" [(ngModel)]="index" placeholder="Index" />
+
+<p>Enter the replacement string:</p>
+<input type="text" [(ngModel)]="replacement" placeholder="Replacement string" />
+
+<button (click)="replaceStringAtIndex()">Replace</button>
+
+<p *ngIf="resultArray">Updated Array: {{ resultArray }}</p>

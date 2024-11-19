@@ -1,0 +1,11 @@
+<h1>Ancient Algorithm Decoder</h1>
+
+<p>Enter a string to decode:</p>
+<input
+  type="text"
+  [(ngModel)]="inputString"
+  placeholder="Enter encoded string"
+/>
+<button (click)="decodeString()">Decode</button>
+
+<p *ngIf="decodedString">Decoded String: {{ decodedString }}</p>

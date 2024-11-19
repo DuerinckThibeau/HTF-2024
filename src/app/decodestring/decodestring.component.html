@@ -1,0 +1,5 @@
+<h1>Decode String</h1>
+<input type="text" [(ngModel)]="encodedString" />
+<button (click)="decodeString()">Decode</button>
+<p style="margin-top: 20px">Encoded String: {{ encodedString }}</p>
+<p *ngIf="decodedString">Decoded String: {{ decodedString }}</p>

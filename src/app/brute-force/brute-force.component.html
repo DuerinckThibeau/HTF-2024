@@ -1,0 +1,23 @@
+<div class="brute-force-container">
+  <div class="button-container">
+    <button
+      (click)="startBruteForce()"
+      [disabled]="isRunning"
+      class="start-button"
+    >
+      {{ isRunning ? "Running..." : "Start Brute Force" }}
+    </button>
+
+    <button *ngIf="isRunning" (click)="stopBruteForce()" class="stop-button">
+      Stop
+    </button>
+  </div>
+
+  <div class="attempt-count">Attempts tried: {{ attemptCount }} / 10000</div>
+
+  <div class="attempts-container">
+    <div *ngFor="let attempt of attempts" class="attempt-item">
+      {{ attempt }}
+    </div>
+  </div>
+</div>
