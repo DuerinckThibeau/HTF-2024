@@ -1,11 +1,52 @@
-<h1>Replace String in Array</h1>
+<div class="space-container">
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
 
-<p>Enter the index of the string to replace:</p>
-<input type="number" [(ngModel)]="index" placeholder="Index" />
+  <div class="content">
+    <h1 class="cosmic-title">ArrayList String Replacer</h1>
+    <div class="decoder-box">
+      <div class="input-group">
+        <input
+          type="number"
+          [(ngModel)]="index"
+          placeholder="Enter index to replace..."
+          class="cosmic-input"
+        />
+        <input
+          type="text"
+          [(ngModel)]="replacement"
+          placeholder="Enter replacement string..."
+          class="cosmic-input"
+        />
+        <button (click)="replaceStringAtIndex()" class="cosmic-button">
+          <span class="button-content">
+            <i class="fas fa-random"></i>
+            Replace String
+          </span>
+        </button>
+      </div>
 
-<p>Enter the replacement string:</p>
-<input type="text" [(ngModel)]="replacement" placeholder="Replacement string" />
+      <div class="result-container" *ngIf="resultArray">
+        <div class="result-card">
+          <div class="encoding-type">
+            <span class="label">Operation Type:</span>
+            <span class="value">ArrayList String Replacement</span>
+          </div>
 
-<button (click)="replaceStringAtIndex()">Replace</button>
+          <div class="message-box">
+            <div class="encoded">
+              <span class="label">Original Array:</span>
+              <div class="value">[{{ arrayList }}]</div>
+            </div>
 
-<p *ngIf="resultArray">Updated Array: {{ resultArray }}</p>
+            <div class="decoded">
+              <span class="label">Updated Array:</span>
+              <div class="value">[{{ resultArray }}]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

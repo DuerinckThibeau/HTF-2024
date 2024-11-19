@@ -10,6 +10,7 @@ export class BruteForceComponent {
   attempts: string[] = [];
   isRunning: boolean = false;
   attemptCount: number = 0;
+  isLiveMode: boolean = false;
 
   constructor(private bruteForceService: BruteForceServiceService) {}
 
@@ -28,7 +29,9 @@ export class BruteForceComponent {
         this.attemptCount = count;
       });
 
-    const result = await this.bruteForceService.startBruteForce();
+    const result = await this.bruteForceService.startBruteForce(
+      this.isLiveMode
+    );
 
     if (result) {
       this.attempts.unshift(`Success! The password is: ${result}`);
@@ -43,5 +46,7 @@ export class BruteForceComponent {
 
   stopBruteForce() {
     this.bruteForceService.stopBruteForce();
+    this.attemptCount = 0;
+    this.attempts.unshift("Operation aborted by user");
   }
 }

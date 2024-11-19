@@ -1,8 +1,66 @@
-<h1>Zoek de eerste en laatste dag van een maand</h1>
+<div class="space-container">
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
 
-<p>Voer een maand en jaar in:</p>
-<input type="number" [(ngModel)]="month" placeholder="Month (1-12)" />
-<input type="number" [(ngModel)]="year" placeholder="Year" />
-<button (click)="findFirstAndLastDay()">Submit</button>
+  <div class="content-panel">
+    <h1 class="cosmic-title">Galactic Time Navigator</h1>
+    <div class="input-container">
+      <p class="cosmic-text">Enter Earth's time coordinates:</p>
+      <div class="input-group">
+        <input
+          type="number"
+          [(ngModel)]="month"
+          placeholder="Month (1-12)"
+          class="cosmic-input"
+          min="1"
+          max="12"
+        />
+        <input
+          type="number"
+          [(ngModel)]="year"
+          placeholder="Year"
+          class="cosmic-input"
+        />
+        <button (click)="findFirstAndLastDay()" class="cosmic-button">
+          <i class="fas fa-rocket"></i> Launch Time Scan
+        </button>
+      </div>
 
-<p *ngIf="result">{{ result }}</p>
+      <div *ngIf="showCalendar">
+        <div class="result-container">
+          <div class="day-info first">
+            <span class="label">First Day:</span>
+            <span class="value">{{ firstDayName }}</span>
+          </div>
+          <div class="day-info last">
+            <span class="label">Last Day:</span>
+            <span class="value">{{ lastDayName }}</span>
+          </div>
+        </div>
+
+        <div class="calendar-container">
+          <h2 class="month-title">{{ MONTHS[month - 1] }} {{ year }}</h2>
+          <div class="calendar">
+            <div class="calendar-header">
+              <div *ngFor="let day of DAYS" class="day-header">{{ day }}</div>
+            </div>
+            <div class="calendar-grid">
+              <div *ngFor="let week of calendar" class="week">
+                <div
+                  *ngFor="let day of week"
+                  class="day"
+                  [class.empty]="!day"
+                  [class.first-day]="day === 1"
+                  [class.last-day]="day === lastDayOfMonth"
+                >
+                  {{ day }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

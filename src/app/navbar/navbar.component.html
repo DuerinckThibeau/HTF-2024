@@ -1,39 +1,33 @@
 <nav class="navbar">
-  <ul class="nav-list">
-    <li>
-      <a routerLink="/mission/disarium-number" routerLinkActive="active"
-        >Disarium Number</a
-      >
-    </li>
-    <li>
-      <a routerLink="/mission/first-last-day-month" routerLinkActive="active"
-        >First/Last Day of Month</a
-      >
-    </li>
-    <li>
-      <a routerLink="/mission/decode-string" routerLinkActive="active"
-        >Decode String</a
-      >
-    </li>
-    <li>
-      <a routerLink="/mission/ancient-algorithm" routerLinkActive="active"
-        >Ancient Algorithm</a
-      >
-    </li>
-    <li>
-      <a routerLink="/mission/reverse-string" routerLinkActive="active"
-        >Reverse String</a
-      >
-    </li>
-    <li>
-      <a routerLink="/mission/replace-string" routerLinkActive="active"
-        >Replace String</a
-      >
-    </li>
-    <li>
-      <a routerLink="/missionn/yippie-force" routerLinkActive="active"
-        >Brute Force</a
-      >
-    </li>
-  </ul>
+  <div class="nav-content">
+    <div class="logo-container">
+      <img
+        src="assets/logo.png"
+        alt="Logo"
+        class="spinning-logo"
+        routerLink="/home"
+      />
+    </div>
+
+    <ul class="nav-list">
+      <li>
+        <a routerLink="/home" routerLinkActive="active">
+          <i class="fas fa-home"></i>
+          Mission Control
+        </a>
+      </li>
+      <li>
+        <a routerLink="/profile" routerLinkActive="active">
+          <i class="fas fa-user-astronaut"></i>
+          Profile
+        </a>
+      </li>
+      <li>
+        <a routerLink="/achievements" routerLinkActive="active">
+          <i class="fas fa-medal"></i>
+          Achievements
+        </a>
+      </li>
+    </ul>
+  </div>
 </nav>

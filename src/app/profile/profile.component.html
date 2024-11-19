@@ -1,0 +1,48 @@
+<div class="space-container">
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
+  <div class="command-center">
+    <h1 class="main-title">Team Profile</h1>
+
+    <div class="profile-content">
+      <div class="team-section">
+        <div class="team-image">
+          <img src="assets/Jawas.png" alt="Team Jawas" />
+        </div>
+        <div class="team-info">
+          <h2>Team {{ team.name }}</h2>
+          <p>
+            A duo of passionate developers, united by their love for Star Wars
+            and coding. Just like the Jawas of Tatooine, we're resourceful
+            problem solvers who turn complex challenges into elegant solutions.
+          </p>
+        </div>
+      </div>
+
+      <div class="members-grid">
+        <div class="member-card" *ngFor="let member of team.members">
+          <h3>{{ member.name }}</h3>
+          <div class="member-content">
+            <div class="role">{{ member.role }}</div>
+            <div class="social-links">
+              <a [href]="member.github" target="_blank" class="social-link">
+                <div class="social-content">
+                  <i class="fab fa-github"></i>
+                  <span>GitHub</span>
+                </div>
+              </a>
+              <a [href]="member.linkedin" target="_blank" class="social-link">
+                <div class="social-content">
+                  <i class="fab fa-linkedin"></i>
+                  <span>LinkedIn</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,23 +1,70 @@
-<div class="brute-force-container">
-  <div class="button-container">
-    <button
-      (click)="startBruteForce()"
-      [disabled]="isRunning"
-      class="start-button"
-    >
-      {{ isRunning ? "Running..." : "Start Brute Force" }}
-    </button>
+<div class="space-container">
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
 
-    <button *ngIf="isRunning" (click)="stopBruteForce()" class="stop-button">
-      Stop
-    </button>
-  </div>
+  <div class="content">
+    <h1 class="cosmic-title">Brute Force Simulator</h1>
+    <div class="decoder-box">
+      <div class="input-group">
+        <button
+          (click)="startBruteForce()"
+          [disabled]="isRunning"
+          class="cosmic-button"
+        >
+          <span class="button-content">
+            <i class="fas fa-play"></i>
+            {{ isRunning ? "BRUTEFORCING..." : "INITIATE SEQUENCE" }}
+          </span>
+        </button>
 
-  <div class="attempt-count">Attempts tried: {{ attemptCount }} / 10000</div>
+        <button
+          *ngIf="isRunning"
+          (click)="stopBruteForce()"
+          class="cosmic-button stop-button"
+        >
+          <span class="button-content">
+            <i class="fas fa-stop"></i>
+            ABORT
+          </span>
+        </button>
+      </div>
 
-  <div class="attempts-container">
-    <div *ngFor="let attempt of attempts" class="attempt-item">
-      {{ attempt }}
+      <div class="result-container">
+        <div class="result-card">
+          <div class="encoding-type">
+            <span class="label">Progress:</span>
+            <div class="progress-bar">
+              <div
+                class="progress"
+                [style.width]="(attemptCount / 10000) * 100 + '%'"
+              ></div>
+            </div>
+            <div class="attempt-count">
+              Attempts: {{ attemptCount }} / 10000
+            </div>
+          </div>
+
+          <div class="message-box">
+            <div class="navigation-log">
+              <span class="label">Navigation Log:</span>
+              <div class="value attempts-container">
+                <div *ngFor="let attempt of attempts" class="attempt-item">
+                  {{ attempt }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mode-switch">
+        <span class="mode-label">Live Mode:</span>
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="isLiveMode" />
+          <span class="slider"></span>
+        </label>
+      </div>
     </div>
   </div>
 </div>
