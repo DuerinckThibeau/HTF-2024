@@ -26,7 +26,6 @@ export class DISARIUMNUMBERComponent {
       }
     }
 
-    // Original disarium number calculation logic here
     const numStr = this.num.toString();
     let sum = 0;
     for (let i = 0; i < numStr.length; i++) {
