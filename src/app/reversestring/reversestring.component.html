@@ -1,8 +1,54 @@
-<h1>Reverse String</h1>
+<div class="space-container">
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
 
-<p>Voer een string in:</p>
-<input type="text" [(ngModel)]="inputString" placeholder="Enter string" />
-<button (click)="reverseString()">Reverse</button>
+  <div class="content">
+    <h1 class="cosmic-title">Reverse String Decoder</h1>
+    <div class="decoder-box">
+      <div class="input-group">
+        <input
+          type="text"
+          [(ngModel)]="inputString"
+          placeholder="Enter text to reverse..."
+          class="cosmic-input"
+        />
+        <button (click)="reverseString()" class="cosmic-button">
+          <span class="button-content">
+            <i class="fas fa-exchange-alt"></i>
+            Reverse Text
+          </span>
+        </button>
+      </div>
 
-<p *ngIf="inputString">Originele string: {{ inputString }}</p>
-<p *ngIf="reversedString">Omgekeerde string: {{ reversedString }}</p>
+      <div class="result-container" *ngIf="reversedString">
+        <div class="result-card">
+          <div class="encoding-type">
+            <span class="label">Operation Type:</span>
+            <span class="value">String Reversal</span>
+          </div>
+
+          <div class="message-box">
+            <div class="encoded">
+              <span class="label">Original Text:</span>
+              <div class="value">{{ inputString }}</div>
+            </div>
+
+            <div class="decoded">
+              <span class="label">Reversed Result:</span>
+              <div class="value shifting-text">
+                <span
+                  *ngFor="let char of animatedChars"
+                  [class.reversed]="char.reversed"
+                  class="char-container"
+                >
+                  {{ char.value }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
