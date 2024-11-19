@@ -1,31 +1,90 @@
 .navbar {
-  background-color: #333;
+  background: linear-gradient(180deg, #0b0b2e 0%, #1b1b4b 100%);
   padding: 1rem;
+  box-shadow: 0 2px 15px rgba(0, 0, 255, 0.2);
+  position: relative;
+  overflow: hidden;
 
-  .nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 50% 50%,
+      transparent 90%,
+      rgba(255, 255, 255, 0.1)
+    );
+    pointer-events: none;
+  }
+}
 
-    li {
-      a {
-        color: white;
-        text-decoration: none;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        transition: background-color 0.3s;
+.nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-        &:hover {
-          background-color: #555;
-        }
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
 
-        &.active {
-          background-color: #666;
-        }
-      }
+  &.left {
+    margin-right: auto;
+  }
+
+  &.right {
+    margin-left: auto;
+  }
+
+  li a {
+    color: #b8b8ff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-family: "Space Mono", monospace;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+
+    &:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
+
+    &.active {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+.logo-container {
+  padding: 0 2rem;
+}
+
+.spinning-logo {
+  width: 50px;
+  height: 50px;
+  animation: spin 8s cubic-bezier(0.45, 0, 0.1, 1) infinite;
+}
+
+@keyframes spin {
+  0%,
+  20% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
