@@ -34,7 +34,20 @@ export class BruteForceServiceService {
     return num;
   }
 
-  async tryNumber(num: number): Promise<any> {
+  private simulateAttempt(num: number): Promise<any> {
+    return new Promise((resolve) => {
+      const formattedNum = num.toString().padStart(4, "0");
+      console.log(`Simulating password: ${formattedNum}`);
+      this.attemptsSubject.next(`Password ${formattedNum} = false (Simulated)`);
+      resolve(null);
+    });
+  }
+
+  async tryNumber(num: number, isLiveMode: boolean): Promise<any> {
+    if (!isLiveMode) {
+      return this.simulateAttempt(num);
+    }
+
     const formattedNum = num.toString().padStart(4, "0");
     try {
       console.log(`Trying password: ${formattedNum}`);
@@ -61,7 +74,7 @@ export class BruteForceServiceService {
     this.shouldStop = true;
   }
 
-  async startBruteForce(): Promise<string | null> {
+  async startBruteForce(isLiveMode: boolean = false): Promise<string | null> {
     this.triedNumbers.clear();
     this.shouldStop = false;
 
@@ -71,14 +84,14 @@ export class BruteForceServiceService {
         return null;
       }
 
-      const result = await this.tryNumber(nextNum);
+      const result = await this.tryNumber(nextNum, isLiveMode);
       this.attemptCountSubject.next(this.triedNumbers.size);
 
       if (result) {
         return nextNum.toString().padStart(4, "0");
       }
 
-      await this.delay(100);
+      await this.delay(100); // Consistent 200ms delay for both modes
     }
 
     return null;
