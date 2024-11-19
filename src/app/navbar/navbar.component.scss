@@ -1,24 +1,12 @@
 .navbar {
-  background: linear-gradient(180deg, #0b0b2e 0%, #1b1b4b 100%);
+  background: rgba(31, 32, 65, 0.95);
+  backdrop-filter: blur(10px);
   padding: 1rem;
-  box-shadow: 0 2px 15px rgba(0, 0, 255, 0.2);
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(
-      circle at 50% 50%,
-      transparent 90%,
-      rgba(255, 255, 255, 0.1)
-    );
-    pointer-events: none;
-  }
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-content {
@@ -29,6 +17,24 @@
   align-items: center;
 }
 
+.logo-container {
+  .spinning-logo {
+    width: 50px;
+    height: 50px;
+    animation: spin 8s cubic-bezier(0.45, 0, 0.1, 1) infinite;
+    cursor: pointer;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .nav-list {
   list-style: none;
   display: flex;
@@ -36,55 +42,38 @@
   margin: 0;
   padding: 0;
 
-  &.left {
-    margin-right: auto;
-  }
-
-  &.right {
-    margin-left: auto;
-  }
-
   li a {
-    color: #b8b8ff;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     padding: 0.5rem 1rem;
-    border-radius: 20px;
+    border-radius: 8px;
     transition: all 0.3s ease;
-    font-family: "Space Mono", monospace;
-    text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    i {
+      font-size: 1.1rem;
+      background: linear-gradient(45deg, #7928ca, #ff0080);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
     &:hover {
       color: #ffffff;
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      background: rgba(121, 40, 202, 0.1);
     }
 
     &.active {
-      background: rgba(255, 255, 255, 0.15);
+      background: linear-gradient(
+        45deg,
+        rgba(121, 40, 202, 0.2),
+        rgba(255, 0, 128, 0.2)
+      );
       color: #ffffff;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     }
-  }
-}
-
-.logo-container {
-  padding: 0 2rem;
-}
-
-.spinning-logo {
-  width: 50px;
-  height: 50px;
-  animation: spin 8s cubic-bezier(0.45, 0, 0.1, 1) infinite;
-}
-
-@keyframes spin {
-  0%,
-  20% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }

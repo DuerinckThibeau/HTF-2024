@@ -13,6 +13,33 @@ interface Mission {
 })
 export class HomeComponent implements OnInit {
   missions: Mission[] = [
+    {
+      solved: true,
+    },
+    {
+      solved: true,
+    },
+    {
+      solved: true,
+    },
+    {
+      solved: true,
+    },
+    {
+      solved: true,
+    },
+    {
+      solved: true,
+    },
+    {
+      solved: true,
+    },
+    {
+      solved: true,
+    },
+    {
+      solved: true,
+    },
     // Add your mission data here with solved status
   ];
 

@@ -22,3 +22,8 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
+
+.space-container {
+  min-height: 100vh;
+  padding-top: 80px !important; /* Height of navbar + some padding */
+}

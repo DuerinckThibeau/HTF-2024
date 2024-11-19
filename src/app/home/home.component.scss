@@ -224,4 +224,14 @@ $shadows-big: multiple-box-shadow(100);
     margin: 0;
     font-size: 0.9rem;
   }
+
+  .mission-task {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    font-style: italic;
+  }
 }

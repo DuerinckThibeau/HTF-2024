@@ -18,6 +18,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { StringToHexComponent } from "./string-to-hex/string-to-hex.component";
 import { MorseCodeComponent } from "./morse-code/morse-code.component";
 import { HomeComponent } from "./home/home.component";
+import { ProfileComponent } from "./profile/profile.component";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { HomeComponent } from "./home/home.component";
     StringToHexComponent,
     MorseCodeComponent,
     HomeComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { HomeComponent } from "./home/home.component";
     HttpClientModule,
     RouterModule.forRoot([
       { path: "home", component: HomeComponent },
+      { path: "profile", component: ProfileComponent },
       { path: "mission/disarium-number", component: DISARIUMNUMBERComponent },
       {
         path: "mission/first-last-day-month",
