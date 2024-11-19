@@ -1,8 +1,33 @@
-<h1>Zoek de eerste en laatste dag van een maand</h1>
+<div class="space-container">
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
 
-<p>Voer een maand en jaar in:</p>
-<input type="number" [(ngModel)]="month" placeholder="Month (1-12)" />
-<input type="number" [(ngModel)]="year" placeholder="Year" />
-<button (click)="findFirstAndLastDay()">Submit</button>
+  <div class="content-panel">
+    <h1 class="cosmic-title">First and Last Day Finder</h1>
+    <div class="input-container">
+      <p class="cosmic-text">Enter month and year:</p>
+      <div class="input-group">
+        <input
+          type="number"
+          [(ngModel)]="month"
+          placeholder="Month (1-12)"
+          class="cosmic-input"
+          min="1"
+          max="12"
+        />
+        <input
+          type="number"
+          [(ngModel)]="year"
+          placeholder="Year"
+          class="cosmic-input"
+        />
+        <button (click)="findFirstAndLastDay()" class="cosmic-button">
+          Calculate
+        </button>
+      </div>
 
-<p *ngIf="result">{{ result }}</p>
+      <p *ngIf="result" class="result-text">{{ result }}</p>
+    </div>
+  </div>
+</div>
