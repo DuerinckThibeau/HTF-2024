@@ -6,7 +6,7 @@
   <div class="content-panel">
     <h1 class="cosmic-title">Galactic Time Navigator</h1>
     <div class="input-container">
-      <p class="cosmic-text">Enter Earth's temporal coordinates:</p>
+      <p class="cosmic-text">Enter Earth's time coordinates:</p>
       <div class="input-group">
         <input
           type="number"
@@ -27,18 +27,35 @@
         </button>
       </div>
 
-      <p *ngIf="result" class="result-text">{{ result }}</p>
-
-      <div *ngIf="showCalendar" class="calendar-container">
-        <h2 class="month-title">{{ MONTHS[month - 1] }} {{ year }}</h2>
-        <div class="calendar">
-          <div class="calendar-header">
-            <div *ngFor="let day of DAYS" class="day-header">{{ day }}</div>
+      <div *ngIf="showCalendar">
+        <div class="result-container">
+          <div class="day-info first">
+            <span class="label">First Day:</span>
+            <span class="value">{{ firstDayName }}</span>
           </div>
-          <div class="calendar-grid">
-            <div *ngFor="let week of calendar" class="week">
-              <div *ngFor="let day of week" class="day" [class.empty]="!day">
-                {{ day }}
+          <div class="day-info last">
+            <span class="label">Last Day:</span>
+            <span class="value">{{ lastDayName }}</span>
+          </div>
+        </div>
+
+        <div class="calendar-container">
+          <h2 class="month-title">{{ MONTHS[month - 1] }} {{ year }}</h2>
+          <div class="calendar">
+            <div class="calendar-header">
+              <div *ngFor="let day of DAYS" class="day-header">{{ day }}</div>
+            </div>
+            <div class="calendar-grid">
+              <div *ngFor="let week of calendar" class="week">
+                <div
+                  *ngFor="let day of week"
+                  class="day"
+                  [class.empty]="!day"
+                  [class.first-day]="day === 1"
+                  [class.last-day]="day === lastDayOfMonth"
+                >
+                  {{ day }}
+                </div>
               </div>
             </div>
           </div>

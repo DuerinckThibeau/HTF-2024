@@ -11,6 +11,9 @@ export class FirstlastdaymonthComponent implements OnInit {
   result: string = "";
   calendar: any[] = [];
   showCalendar: boolean = false;
+  firstDayName: string = "";
+  lastDayName: string = "";
+  lastDayOfMonth: number = 0;
 
   readonly DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   readonly MONTHS = [
@@ -62,14 +65,21 @@ export class FirstlastdaymonthComponent implements OnInit {
 
     const firstDay = new Date(this.year, this.month - 1, 1);
     const lastDay = new Date(this.year, this.month, 0);
+    this.lastDayOfMonth = lastDay.getDate();
 
     const options = { weekday: "long" } as const;
-    const firstDayName = firstDay.toLocaleDateString("en-US", options);
-    const lastDayName = lastDay.toLocaleDateString("en-US", options);
+    this.firstDayName = firstDay.toLocaleDateString("en-US", options);
+    this.lastDayName = lastDay.toLocaleDateString("en-US", options);
 
-    this.result = `First day: ${firstDayName}, Last day: ${lastDayName}`;
     this.generateCalendar();
     this.showCalendar = true;
+  }
+
+  isSpecialDay(day: number | null): string {
+    if (!day) return "";
+    if (day === 1) return "first-day";
+    if (day === this.lastDayOfMonth) return "last-day";
+    return "";
   }
 
   ngOnInit(): void {}
