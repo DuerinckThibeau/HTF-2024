@@ -17,6 +17,7 @@ import { BruteForceComponent } from "./brute-force/brute-force.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { StringToHexComponent } from "./string-to-hex/string-to-hex.component";
 import { MorseCodeComponent } from "./morse-code/morse-code.component";
+import { HomeComponent } from "./home/home.component";
 
 @NgModule({
   declarations: [
@@ -31,12 +32,14 @@ import { MorseCodeComponent } from "./morse-code/morse-code.component";
     NavbarComponent,
     StringToHexComponent,
     MorseCodeComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
+      { path: "home", component: HomeComponent },
       { path: "mission/disarium-number", component: DISARIUMNUMBERComponent },
       {
         path: "mission/first-last-day-month",
@@ -52,7 +55,7 @@ import { MorseCodeComponent } from "./morse-code/morse-code.component";
       { path: "mission/brute-force", component: BruteForceComponent },
       { path: "mission/string-to-hex", component: StringToHexComponent },
       { path: "mission/morse-code", component: MorseCodeComponent },
-      { path: "", redirectTo: "/mission/disarium-number", pathMatch: "full" }, // Default route
+      { path: "", redirectTo: "home", pathMatch: "full" },
     ]),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

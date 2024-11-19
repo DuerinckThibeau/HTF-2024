@@ -1,0 +1,175 @@
+// Star colors
+$star-color: #fff;
+$star-color-transparent: rgba(255, 255, 255, 0);
+
+// Create multiple star layers
+@function stars($n) {
+  $value: "#{random(2000)}px #{random(2000)}px #{$star-color}";
+  @for $i from 2 through $n {
+    $value: "#{$value}, #{random(2000)}px #{random(2000)}px #{$star-color}";
+  }
+  @return unquote($value);
+}
+
+// Keyframes for twinkling effect
+@keyframes twinkle {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.space-container {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+// First star layer (static)
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(1px 1px at #{stars(200)});
+  background-size: 2000px 2000px;
+  animation: rotate 200s linear infinite;
+}
+
+// Second star layer (twinkling)
+.twinkling {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(1px 1px at #{stars(150)});
+  background-size: 2000px 2000px;
+  animation: twinkle 4s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+.command-center {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.main-title {
+  text-align: center;
+  color: #0ff;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.mission-sectors {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.mission-sector {
+  background: rgba(0, 20, 40, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.sector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  h2 {
+    color: #0ff;
+    margin: 0;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+.badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #666;
+  overflow: hidden;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+
+  &.completed {
+    border-color: #0ff;
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.mission-card {
+  background: rgba(0, 10, 20, 0.8);
+  border: 1px solid #0ff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+  }
+
+  &.completed {
+    border-color: #00ff00;
+
+    h3 {
+      color: #00ff00;
+    }
+  }
+
+  h3 {
+    color: #0ff;
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+  }
+}
+
+.mission-content {
+  color: #fff;
+
+  .difficulty {
+    color: #ff9900;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+}

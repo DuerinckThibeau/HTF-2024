@@ -1,0 +1,146 @@
+<div class="space-container">
+  <div class="stars"></div>
+  <div class="stars-2"></div>
+  <div class="twinkling"></div>
+
+  <div class="command-center">
+    <h1 class="main-title">Space Mission Control</h1>
+
+    <div class="mission-sectors">
+      <!-- Habitat Construction Section -->
+      <div class="mission-sector">
+        <div class="sector-header">
+          <h2>Habitat Construction</h2>
+          <div class="badge" [class.completed]="isHabitatComplete()">
+            <img src="assets/SHELTER_BADGE.png" alt="Shelter Badge" />
+          </div>
+        </div>
+        <div class="mission-grid">
+          <div
+            class="mission-card"
+            [class.completed]="missions[0].solved"
+            routerLink="/mission/disarium-number"
+          >
+            <h3>Space Tent</h3>
+            <div class="mission-content">
+              <div class="difficulty">Difficulty: ★★★★★</div>
+              <p>Emergency protection from cosmic hazards</p>
+            </div>
+          </div>
+          <div
+            class="mission-card"
+            [class.completed]="missions[1].solved"
+            routerLink="/mission/string-to-hex"
+          >
+            <h3>Radiation Shield</h3>
+            <div class="mission-content">
+              <div class="difficulty">Difficulty: ★★</div>
+              <p>Protection against harmful radiation</p>
+            </div>
+          </div>
+          <div
+            class="mission-card"
+            [class.completed]="missions[2].solved"
+            routerLink="/mission/first-last-day-month"
+          >
+            <h3>Thermal Regulator</h3>
+            <div class="mission-content">
+              <div class="difficulty">Difficulty: ★★★</div>
+              <p>Temperature control and signaling</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Section -->
+      <div class="mission-sector">
+        <div class="sector-header">
+          <h2>Navigation</h2>
+          <div class="badge" [class.completed]="isNavigationComplete()">
+            <img src="assets/NAVIGATION_BADGE.png" alt="Navigation Badge" />
+          </div>
+        </div>
+        <div class="mission-grid">
+          <div
+            class="mission-card"
+            [class.completed]="missions[3].solved"
+            routerLink="/mission/morse-code"
+          >
+            <h3>Star Map</h3>
+            <div class="mission-content">
+              <div class="difficulty">Difficulty: ★★★★★</div>
+              <p>Essential celestial navigation tool</p>
+            </div>
+          </div>
+          <div
+            class="mission-card"
+            [class.completed]="missions[4].solved"
+            routerLink="/mission/decode-string"
+          >
+            <h3>Gyroscope</h3>
+            <div class="mission-content">
+              <div class="difficulty">Difficulty: ★★★</div>
+              <p>Maintain orientation in space</p>
+            </div>
+          </div>
+          <div
+            class="mission-card"
+            [class.completed]="missions[5].solved"
+            routerLink="/mission/brute-force"
+          >
+            <h3>Astronavigation</h3>
+            <div class="mission-content">
+              <div class="difficulty">Difficulty: ★★</div>
+              <p>Precise space navigation device</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alien Encounters Section -->
+      <div class="mission-sector">
+        <div class="sector-header">
+          <h2>Alien Encounters</h2>
+          <div class="badge" [class.completed]="isAlienComplete()">
+            <img src="assets/ALIEN_ENCOUNTER_BADGE.png" alt="Alien Badge" />
+          </div>
+        </div>
+        <div class="mission-grid">
+          <div
+            class="mission-card"
+            [class.completed]="missions[6].solved"
+            routerLink="/mission/ancient-algorithm"
+          >
+            <h3>Plasma Spray</h3>
+            <div class="mission-content">
+              <div class="difficulty">Difficulty: ★★★★★</div>
+              <p>Defense against large creatures</p>
+            </div>
+          </div>
+          <div
+            class="mission-card"
+            [class.completed]="missions[7].solved"
+            routerLink="/mission/reverse-string"
+          >
+            <h3>Sonic Blaster</h3>
+            <div class="mission-content">
+              <div class="difficulty">Difficulty: ★★★</div>
+              <p>Deter dangerous wildlife</p>
+            </div>
+          </div>
+          <div
+            class="mission-card"
+            [class.completed]="missions[8].solved"
+            routerLink="/mission/replace-string"
+          >
+            <h3>Stun Ray</h3>
+            <div class="mission-content">
+              <div class="difficulty">Difficulty: ★★★</div>
+              <p>Non-lethal alien deterrent</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
