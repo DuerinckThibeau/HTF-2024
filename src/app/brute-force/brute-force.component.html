@@ -14,7 +14,7 @@
         >
           <span class="button-content">
             <i class="fas fa-play"></i>
-            {{ isRunning ? "CALIBRATING..." : "INITIATE SEQUENCE" }}
+            {{ isRunning ? "BRUTEFORCING..." : "INITIATE SEQUENCE" }}
           </span>
         </button>
 
@@ -56,6 +56,14 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="mode-switch">
+        <span class="mode-label">Live Mode:</span>
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="isLiveMode" />
+          <span class="slider"></span>
+        </label>
       </div>
     </div>
   </div>
